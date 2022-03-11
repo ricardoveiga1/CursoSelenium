@@ -6,16 +6,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import javax.annotation.PostConstruct;
+//import javax.annotation.PostConstruct;
 
 public class TesteGoogle {
 
     @Test
     public void teste() {
-        System.setProperty("webdriver.gecko.driver", "/Users/ricardoveiga/Drivers/geckodriver28");
+        System.setProperty("webdriver.gecko.driver", "/Users/ricardoveiga/Drivers/geckodriver");
         WebDriver driver = new FirefoxDriver();
-        //System.setProperty("webdriver.chrome.driver", "/Users/ricardoveiga/Drivers/chromedriver");
-        //WebDriver driver = new ChromeDriver();
+//        System.setProperty("webdriver.chrome.driver", "/Users/ricardoveiga/Drivers/chromedriver");
+//        WebDriver driver = new ChromeDriver();
         //driver.manage().window().setPosition(new Point(100, 100));
         driver.manage().window().setSize(new Dimension(1200, 765));
         driver.get("http://www.google.com/");

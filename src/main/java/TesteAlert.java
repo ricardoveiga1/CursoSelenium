@@ -1,4 +1,6 @@
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -8,12 +10,24 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class TesteAlert {
 
-    @Test
-    public void deveInteragirComALertSimples(){
-        System.setProperty("webdriver.gecko.driver", "/Users/ricardoveiga/Drivers/geckodriver28");
-        WebDriver driver = new FirefoxDriver();
+    private WebDriver driver;
+
+    @Before
+    public void setup(){
+        System.setProperty("webdriver.gecko.driver", "/Users/ricardoveiga/Drivers/geckodriver");
+        driver = new FirefoxDriver();
+//        System.setProperty("webdriver.chrome.driver", "/Users/ricardoveiga/Drivers/chromedriver");
+//        WebDriver driver = new ChromeDriver();
         driver.manage().window().setSize(new Dimension(1200, 765));
         driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+    }
+    @After
+    public void finaliza(){
+        driver.quit();
+    }
+
+    @Test
+    public void deveInteragirComALertSimples(){
         driver.findElement(By.id("alert")).click();
 
         Alert alert = driver.switchTo().alert();
@@ -21,15 +35,10 @@ public class TesteAlert {
         Assert.assertEquals("Alert Simples", texto);
         alert.accept();
         driver.findElement(By.id("elementosForm:nome")).sendKeys(texto);
-        driver.quit();
     }
 
     @Test
     public void deveInteragirComALertConfirm(){
-        System.setProperty("webdriver.gecko.driver", "/Users/ricardoveiga/Drivers/geckodriver28");
-        WebDriver driver = new FirefoxDriver();
-        driver.manage().window().setSize(new Dimension(1200, 765));
-        driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
 
         driver.findElement(By.id("confirm")).click();
         Alert alert = driver.switchTo().alert();
@@ -47,16 +56,11 @@ public class TesteAlert {
         Assert.assertEquals("Negado", alert.getText());
         alert.dismiss();
 
-        driver.quit();
     }
 
 
     @Test
     public void deveInteragirComALertPrompt(){
-        System.setProperty("webdriver.gecko.driver", "/Users/ricardoveiga/Drivers/geckodriver28");
-        WebDriver driver = new FirefoxDriver();
-        driver.manage().window().setSize(new Dimension(1200, 765));
-        driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
 
         driver.findElement(By.id("prompt")).click();
         Alert alert = driver.switchTo().alert();
@@ -68,9 +72,6 @@ public class TesteAlert {
         Assert.assertEquals(":D", alert.getText());
         alert.accept();
 
-
-
-        driver.quit();
     }
 
 }

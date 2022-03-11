@@ -1,4 +1,6 @@
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -11,12 +13,24 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 //  windowhandles forma mais genérica de lidar com popup e telas
 public class TesteFramesEJanelas {
 
-    @Test
-    public void deveInteragirComFrames(){
-        System.setProperty("webdriver.chrome.driver", "/Users/ricardoveiga/Drivers/chromedriver");
-        WebDriver driver = new ChromeDriver();
+    private WebDriver driver;
+
+    @Before
+    public void setup(){
+        System.setProperty("webdriver.gecko.driver", "/Users/ricardoveiga/Drivers/geckodriver");
+        driver = new FirefoxDriver();
+//        System.setProperty("webdriver.chrome.driver", "/Users/ricardoveiga/Drivers/chromedriver");
+//        WebDriver driver = new ChromeDriver();
         driver.manage().window().setSize(new Dimension(1200, 765));
         driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+    }
+    @After
+    public void finaliza(){
+        driver.quit();
+    }
+
+    @Test
+    public void deveInteragirComFrames(){
 
         driver.switchTo().frame("frame1");
         driver.findElement(By.id("frameButton")).click();
@@ -31,10 +45,6 @@ public class TesteFramesEJanelas {
 
     @Test
     public void deveInteragirComJanelas(){
-        System.setProperty("webdriver.chrome.driver", "/Users/ricardoveiga/Drivers/chromedriver");
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().setSize(new Dimension(1200, 765));
-        driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
 
         driver.findElement(By.id("buttonPopUpEasy")).click();
         driver.switchTo().window("Popup");
@@ -42,16 +52,10 @@ public class TesteFramesEJanelas {
         driver.close();
         driver.switchTo().window("");
         driver.findElement(By.tagName("textarea")).sendKeys("e agora?");
-
-
     }
 
     @Test
     public void deveInteragirComJanelasSemTitulo(){
-        System.setProperty("webdriver.chrome.driver", "/Users/ricardoveiga/Drivers/chromedriver");
-        WebDriver driver = new ChromeDriver();
-        driver.manage().window().setSize(new Dimension(1200, 765));
-        driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
 
         driver.findElement(By.id("buttonPopUpHard")).click();
         System.out.println(driver.getWindowHandle());
@@ -60,7 +64,5 @@ public class TesteFramesEJanelas {
         driver.findElement(By.tagName("textarea")).sendKeys("Deu certo?");
         driver.switchTo().window((String) driver.getWindowHandles().toArray()[0]);
         driver.findElement(By.tagName("textarea")).sendKeys("E agora?");
-
-        driver.quit();
     }
 }
