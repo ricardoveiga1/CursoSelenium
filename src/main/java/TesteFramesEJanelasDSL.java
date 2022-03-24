@@ -15,6 +15,7 @@ public class TesteFramesEJanelasDSL {
 
 	@Before
 	public void inicializa(){
+		System.setProperty("webdriver.gecko.driver", "/Users/ricardoveiga/Drivers/geckodriver");
 		driver = new FirefoxDriver();
 		driver.manage().window().setSize(new Dimension(1200, 765));
 		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
@@ -42,6 +43,7 @@ public class TesteFramesEJanelasDSL {
 		dsl.clicarBotao("buttonPopUpEasy");
 		dsl.trocarJanela("Popup");
 		dsl.escrever(By.tagName("textarea"), "Deu certo?");
+		System.out.println("ygyeg");
 		driver.close();
 		dsl.trocarJanela("");
 		dsl.escrever(By.tagName("textarea"), "e agora?");
