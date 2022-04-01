@@ -12,7 +12,8 @@ public class TesteGoogle {
 
     @Test
     public void teste() {
-        System.setProperty("webdriver.gecko.driver", "/Users/ricardoveiga/Drivers/geckodriver");
+        //System.setProperty("webdriver.gecko.driver", "/Users/ricardoveiga/Drivers/geckodriver");
+        System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/src/main/resources/geckodriver");
         WebDriver driver = new FirefoxDriver();
 //        System.setProperty("webdriver.chrome.driver", "/Users/ricardoveiga/Drivers/chromedriver");
 //        WebDriver driver = new ChromeDriver();
