@@ -1,3 +1,4 @@
+import core.DSL;
 import org.openqa.selenium.WebDriver;
 
 public class CampoTreinamentoPage {
@@ -5,8 +6,9 @@ public class CampoTreinamentoPage {
     private DSL dsl;
 
     //criado construtor porque o driver está na dsl
-    public CampoTreinamentoPage(WebDriver driver) {
-        dsl = new DSL(driver);
+    public CampoTreinamentoPage() {
+
+        dsl = new DSL();
     }
 
     public void setNome(String nome) {

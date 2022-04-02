@@ -6,11 +6,11 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.Select;
 
-public class TesteFrame {
+
+//  windowhandles forma mais genérica de lidar com popup e telas
+public class TesteFramesEJanelas1 {
 
     private WebDriver driver;
 
@@ -29,9 +29,8 @@ public class TesteFrame {
     }
 
     @Test
-    public void deveInteragirComFrame() {
+    public void deveInteragirComFrames(){
 
-//      entrando no frame, depois no alert, e depois saindo e retornando ao default frame
         driver.switchTo().frame("frame1");
         driver.findElement(By.id("frameButton")).click();
         Alert alert = driver.switchTo().alert();
@@ -41,5 +40,28 @@ public class TesteFrame {
 
         driver.switchTo().defaultContent();
         driver.findElement(By.id("elementosForm:nome")).sendKeys(msg);
+    }
+
+    @Test
+    public void deveInteragirComJanelas(){
+
+        driver.findElement(By.id("buttonPopUpEasy")).click();
+        driver.switchTo().window("Popup");
+        driver.findElement(By.tagName("textarea")).sendKeys("Deu certo?");
+        driver.close();
+        driver.switchTo().window("");
+        driver.findElement(By.tagName("textarea")).sendKeys("e agora?");
+    }
+
+    @Test
+    public void deveInteragirComJanelasSemTitulo(){
+
+        driver.findElement(By.id("buttonPopUpHard")).click();
+        System.out.println(driver.getWindowHandle());
+        System.out.println(driver.getWindowHandles());
+        driver.switchTo().window((String) driver.getWindowHandles().toArray()[1]);
+        driver.findElement(By.tagName("textarea")).sendKeys("Deu certo?");
+        driver.switchTo().window((String) driver.getWindowHandles().toArray()[0]);
+        driver.findElement(By.tagName("textarea")).sendKeys("E agora?");
     }
 }

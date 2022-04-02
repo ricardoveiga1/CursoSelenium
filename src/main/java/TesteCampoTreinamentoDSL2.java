@@ -1,32 +1,29 @@
+import core.DSL;
+import core.DriverFactory;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class TesteCampoTreinamentoDSL {
+public class TesteCampoTreinamentoDSL2 {
 	
 	private WebDriver driver;
 	private DSL dsl;
 
 	@Before
 	public void inicializa(){
-		System.setProperty("webdriver.gecko.driver", "/Users/ricardoveiga/Drivers/geckodriver");
-		driver = new FirefoxDriver();
-		driver.manage().window().setSize(new Dimension(1200, 765));
-		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
-		dsl = new DSL(driver);
+		DriverFactory.getDriver().get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+		dsl = new DSL();
 	}
 	
 	@After
 	public void finaliza(){
-		driver.quit();
+		DriverFactory.killDriver();
 	}
 	
 	@Test

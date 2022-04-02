@@ -3,9 +3,9 @@ import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        TesteCadastroPage.class,
+        TesteCadastroPage3.class,
         TesteRegrasCadastro.class,
-        TesteCampoTreinamento.class
+        TesteCampoTreinamento1.class
 })
 public class SuiteTest {
 }

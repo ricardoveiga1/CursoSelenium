@@ -1,3 +1,5 @@
+import core.DSL;
+import core.DriverFactory;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -17,19 +19,14 @@ public class TesteAjax {
 
     @Before
     public void inicializa(){
-        System.setProperty("webdriver.gecko.driver", "/Users/ricardoveiga/Drivers/geckodriver");
-        driver = new FirefoxDriver();
-        driver.manage().window().setSize(new Dimension(1200, 765));
+       DriverFactory.getDriver();
         driver.get("https://www.primefaces.org/showcase/ui/ajax/basic.xhtml?jfwid=e251d");
-        dsl = new DSL(driver);
-
+        dsl = new DSL();
     }
 
     @After
     public void finaliza(){
-        if (driver != null) {
-            driver.quit();
-        }
+        DriverFactory.killDriver();
     }
 
     @Test
