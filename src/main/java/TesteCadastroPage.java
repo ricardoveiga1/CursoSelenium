@@ -37,7 +37,7 @@ public class TesteCadastroPage {
 		page.setEsporte("Natacao");
 		System.out.println("fed");
 		page.cadastrar();
-		
+		//Tem outra forma de validar usando XPATH
 		Assert.assertTrue(page.obterResultadoCadastro().startsWith("Cadastrado!"));
 		Assert.assertTrue(page.obterNomeCadastro().endsWith("Ricardo"));
 		Assert.assertEquals("Sobrenome: Veiga", page.obterSobrenomeCadastro());
