@@ -1,3 +1,5 @@
+package test;
+
 import core.DSL;
 import core.DriverFactory;
 import org.junit.After;

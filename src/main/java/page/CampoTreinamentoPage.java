@@ -1,15 +1,17 @@
+package page;
+
+import core.BasePage;
 import core.DSL;
-import org.openqa.selenium.WebDriver;
 
-public class CampoTreinamentoPage {
 
-    private DSL dsl;
+public class CampoTreinamentoPage extends BasePage {
+
+    //private DSL dsl;
 
     //criado construtor porque o driver está na dsl
-    public CampoTreinamentoPage() {
-
-        dsl = new DSL();
-    }
+//    public CampoTreinamentoPage() {
+//        dsl = new DSL();
+//    }
 
     public void setNome(String nome) {
 

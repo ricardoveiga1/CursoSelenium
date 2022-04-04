@@ -1,3 +1,5 @@
+package test;
+
 import core.DSL;
 import org.junit.After;
 import org.junit.Assert;

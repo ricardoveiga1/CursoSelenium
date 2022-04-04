@@ -1,6 +1,8 @@
+package test;
+
+import core.BaseTest;
 import core.DSL;
 import core.DriverFactory;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -8,18 +10,15 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import page.CampoTreinamentoPage;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
 @RunWith(Parameterized.class) //config data driven test
-public class TesteRegrasCadastro {
+public class TesteRegrasCadastro extends BaseTest {
 
-	private WebDriver driver;
 	private DSL dsl;
 	private CampoTreinamentoPage page;
 	
@@ -35,22 +34,14 @@ public class TesteRegrasCadastro {
 	public String[] esportes;
 	@Parameter(value=5)
 	public String msg;
-	
 
 	@Before
 	public void inicializa(){
-		System.setProperty("webdriver.gecko.driver", "/Users/ricardoveiga/Drivers/geckodriver");
-		driver = new FirefoxDriver();
-		driver.manage().window().setSize(new Dimension(1200, 765));
-		driver.get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
+		DriverFactory.getDriver().get("file:///" + System.getProperty("user.dir") + "/src/main/resources/componentes.html");
 		dsl = new DSL();
 		page = new CampoTreinamentoPage();
 	}
-	
-	@After
-	public void finaliza(){
-		DriverFactory.killDriver();
-	}
+
 
 	//DATA DRIVEN TEST
 	@Parameters
