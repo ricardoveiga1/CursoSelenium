@@ -1,11 +1,11 @@
-package test;
+package br.rj.ricardo.test;
 
-import core.BaseTest;
-import core.DriverFactory;
+import br.rj.ricardo.core.BaseTest;
+import br.rj.ricardo.core.DriverFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import page.CampoTreinamentoPage;
+import br.rj.ricardo.page.CampoTreinamentoPage;
 
 public class TesteCadastroPage3 extends BaseTest {
 

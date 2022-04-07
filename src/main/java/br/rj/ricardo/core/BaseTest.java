@@ -1,4 +1,4 @@
-package core;
+package br.rj.ricardo.core;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.After;

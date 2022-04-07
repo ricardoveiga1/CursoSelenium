@@ -1,4 +1,4 @@
-package core;
+package br.rj.ricardo.core;
 
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;

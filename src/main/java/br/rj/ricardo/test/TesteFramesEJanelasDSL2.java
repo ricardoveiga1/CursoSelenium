@@ -1,6 +1,6 @@
-package test;
+package br.rj.ricardo.test;
 
-import core.DSL;
+import br.rj.ricardo.core.DSL;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

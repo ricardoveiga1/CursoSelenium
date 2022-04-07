@@ -1,4 +1,4 @@
-package core;
+package br.rj.ricardo.core;
 
 public class Propriedades {
 

@@ -1,14 +1,11 @@
-package test;
+package br.rj.ricardo.test;
 
-import core.DSL;
-import core.DriverFactory;
+import br.rj.ricardo.core.DSL;
+import br.rj.ricardo.core.DriverFactory;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 

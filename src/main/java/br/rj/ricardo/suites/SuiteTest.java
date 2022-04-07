@@ -1,11 +1,11 @@
-package suites;
+package br.rj.ricardo.suites;
 
-import core.DriverFactory;
+import br.rj.ricardo.core.DriverFactory;
 import org.junit.AfterClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
-import test.TesteCadastroPage3;
-import test.TesteRegrasCadastro;
+import br.rj.ricardo.test.TesteCadastroPage3;
+import br.rj.ricardo.test.TesteRegrasCadastro;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({

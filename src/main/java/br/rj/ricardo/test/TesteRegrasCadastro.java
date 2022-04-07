@@ -1,8 +1,8 @@
-package test;
+package br.rj.ricardo.test;
 
-import core.BaseTest;
-import core.DSL;
-import core.DriverFactory;
+import br.rj.ricardo.core.BaseTest;
+import br.rj.ricardo.core.DSL;
+import br.rj.ricardo.core.DriverFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,13 +10,13 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
-import page.CampoTreinamentoPage;
+import br.rj.ricardo.page.CampoTreinamentoPage;
 
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-@RunWith(Parameterized.class) //config data driven test
+@RunWith(Parameterized.class)
 public class TesteRegrasCadastro extends BaseTest {
 
 	private DSL dsl;

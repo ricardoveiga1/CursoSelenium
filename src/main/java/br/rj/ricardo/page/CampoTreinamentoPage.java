@@ -1,7 +1,4 @@
-package page;
-
-import core.BasePage;
-import core.DSL;
+package br.rj.ricardo.page;
 
 
 public class CampoTreinamentoPage extends BasePage {
